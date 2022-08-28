@@ -1,10 +1,9 @@
-import { Button, Card, Space, Statistic, Typography } from "antd";
-import { PropsWithChildren, useEffect, useState } from "react";
+import { Card, Statistic, Typography } from "antd";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { getSymbol24hr } from "services/satang";
 import { RootState } from "store";
-import { decrement, increment, incrementAsync, startFetch, stopFetch } from "./slice";
+import { startFetch, stopFetch } from "./slice";
 
 const { Title, Paragraph } = Typography;
 

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Layout, Menu } from 'antd'
+import { Menu } from 'antd'
 import MainLayout from 'components/main-layout'
 import { Outlet, useNavigate, useParams } from 'react-router-dom'
 
