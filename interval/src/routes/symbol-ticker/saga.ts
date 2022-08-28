@@ -1,5 +1,5 @@
 import { Task } from 'redux-saga'
-import { put, takeEvery, delay, call, select, CallEffect, cancelled, CancelledEffect, take, fork, cancel, TakeEffect } from 'redux-saga/effects'
+import { put, delay, call, CallEffect, cancelled, CancelledEffect, take, fork, cancel } from 'redux-saga/effects'
 import { getSymbol24hr } from 'services/satang'
 import { setTicker, startFetch, stopFetch } from './slice'
 
