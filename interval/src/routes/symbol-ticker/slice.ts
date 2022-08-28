@@ -1,43 +1,31 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { SocketTicker, Ticker } from "interfaces/Ticker"
 
-interface Ticker {
-  askPrice: string;
-  bidPrice: string;
-  closeTime: number;
-  count: number;
-  firstId: number;
-  highPrice: string;
-  lastId: number;
-  lastPrice: string;
-  lastQty: string;
-  lowPrice: string;
-  openPrice: string;
-  openTime: number;
-  prevClosePrice: string;
-  priceChange: string;
-  priceChangePercent: string;
-  quoteVolume: string;
-  symbol: string;
-  volume: string;
-  weightedAvgPrice: string;
+interface SymbolTickerState {
+  ticker: Partial<Ticker> | Record<string, never>;
+  contentLoading: boolean;
 }
-
-const initialState = {
-  ticker: {} as Partial<Ticker>,
+const initialState: SymbolTickerState = {
+  ticker: {},
+  contentLoading: false,
 }
 
 const symbolTickerSlice = createSlice({
   name: 'symbol-ticker',
   initialState,
   reducers: {
-    startFetch(state, action: PayloadAction<string>) {},
+    startFetch(state, action: PayloadAction<string>) { },
     stopFetch(state) { },
-    setTicker(state, action: PayloadAction<any>) {
+    setTicker(state, action: PayloadAction<Ticker>) {
       state.ticker = action.payload
+    },
+    setTickerFromSocket(state, action: PayloadAction<SocketTicker>) {
+      const { s, q, c } = action.payload;
+      state.ticker = { symbol: s, volume: q, lastPrice: c };
     }
   }
 })
 
-export const { startFetch, stopFetch, setTicker } = symbolTickerSlice.actions
+export const { startFetch, stopFetch, setTicker, setTickerFromSocket } = symbolTickerSlice.actions
 
 export default symbolTickerSlice.reducer
