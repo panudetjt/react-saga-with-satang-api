@@ -2,4 +2,4 @@
    - @redux/toolkit (rtk)
    - redux/saga 
 
-มีแบบ Websocket อยู่ที่ branch [/websocket](/tree/websocket)
+มีแบบ Websocket อยู่ที่ branch [/websocket](https://github.com/panudetjt/react-saga-with-satang-api/tree/websocket)
